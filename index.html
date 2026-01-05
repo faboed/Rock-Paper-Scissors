@@ -15,7 +15,6 @@
          computerChoiceString = "Rock";
        } else if (computerChoiceNum === 1) {
          computerChoiceString = "Paper";
-
        } else {
          computerChoiceString = "Scissors"
        }
@@ -23,10 +22,17 @@
      }
      console.log(computerChoice())
      <!--Human Choice based on prompt method for input of text without verification-->
-
+     function getHumanChoice() {
+       return window.prompt("Choose: Rock, Paper, Scissors")
+     }
+     
+     console.log(getHumanChoice());
      <!--Variables for player score starting at 0-->
-
-    <!--Single Round play that adds player score based on the winner--> 
+      let playerScore = 0;
+      let computerScore = 0;
+    <!--Single Round play that adds player score based on the winner-->
+      function play() {
+     }
     </script> 
   </body>
 </html>
