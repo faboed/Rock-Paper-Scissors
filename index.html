@@ -7,7 +7,26 @@
   </head>
   <body>
     <script>
-      
+     <!--Computer Choice based on random Math-->
+      function computerChoice() {
+       let computerChoiceString = "";
+       let computerChoiceNum = Math.floor(Math.random(3) * 3);
+       if (computerChoiceNum === 0) {
+         computerChoiceString = "Rock";
+       } else if (computerChoiceNum === 1) {
+         computerChoiceString = "Paper";
+
+       } else {
+         computerChoiceString = "Scissors"
+       }
+       return computerChoiceString;
+     }
+     console.log(computerChoice())
+     <!--Human Choice based on prompt method for input of text without verification-->
+
+     <!--Variables for player score starting at 0-->
+
+    <!--Single Round play that adds player score based on the winner--> 
     </script> 
   </body>
 </html>
