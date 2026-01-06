@@ -7,10 +7,10 @@
   </head>
   <body>
     <script>
-     <!--Computer Choice based on random Math-->
-      function computerChoice() {
-       let computerChoiceString = "";
-       let computerChoiceNum = Math.floor(Math.random(3) * 3);
+     <!--'Computer Choice based on random "Math"'-->
+      function getComputerChoice() {
+        let computerChoiceString = "";
+       let computerChoiceNum = Math.floor(Math.random() * 3);
        if (computerChoiceNum === 0) {
          computerChoiceString = "Rock";
        } else if (computerChoiceNum === 1) {
@@ -20,19 +20,34 @@
        }
        return computerChoiceString;
      }
-     console.log(computerChoice())
      <!--Human Choice based on prompt method for input of text without verification-->
      function getHumanChoice() {
        return window.prompt("Choose: Rock, Paper, Scissors")
      }
-     
-     console.log(getHumanChoice());
+
      <!--Variables for player score starting at 0-->
       let playerScore = 0;
       let computerScore = 0;
+
     <!--Single Round play that adds player score based on the winner-->
-      function play() {
-     }
+      function playRound(humanChoice, computerChoice) {
+        let humanChoiceFormatted = humanChoice.slice(0, 1).toUpperCase() + humanChoice.slice(1).toLowerCase();
+        if (humanChoiceFormatted === computerChoice) {
+          console.log("It's a draw! " + humanChoiceFormatted + " against " + computerChoice);
+        } else if (humanChoiceFormatted === "Rock" && computerChoice === "Scissors" || humanChoiceFormatted === "Paper" && computerChoice === "Rock" || humanChoiceFormatted === "Scissors" && computerChoice === "Paper") {
+          console.log("You win! " + humanChoiceFormatted + " beats " + computerChoice);
+          playerScore++;
+        } else {
+          console.log("You loose! " + computerChoice + " beats " + humanChoiceFormatted);
+          computerScore++;
+        }
+      }
+
+     <!--Constant variables to make sure that function input for playRound is based on the functions above-->
+      const humanChoice = getHumanChoice();
+      const computerChoice = getComputerChoice();
+
+   playRound(humanChoice, computerChoice)
     </script> 
   </body>
 </html>

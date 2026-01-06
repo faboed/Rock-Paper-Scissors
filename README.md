@@ -4,4 +4,7 @@ TheOdinProject RockPaperScissors Project V1
 - Commandline based game
 - Computer Choice based on random math
 - Player Choice based on input
-- Extra Function to play
+- playing individual rounds based on computer and player choices
+- total game is running for 5 rounds
+
+Coded without AI
