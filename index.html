@@ -7,47 +7,55 @@
   </head>
   <body>
     <script>
-     <!--'Computer Choice based on random "Math"'-->
-      function getComputerChoice() {
-        let computerChoiceString = "";
-       let computerChoiceNum = Math.floor(Math.random() * 3);
-       if (computerChoiceNum === 0) {
-         computerChoiceString = "Rock";
-       } else if (computerChoiceNum === 1) {
-         computerChoiceString = "Paper";
-       } else {
-         computerChoiceString = "Scissors"
-       }
-       return computerChoiceString;
-     }
-     <!--Human Choice based on prompt method for input of text without verification-->
-     function getHumanChoice() {
-       return window.prompt("Choose: Rock, Paper, Scissors")
-     }
-
-     <!--Variables for player score starting at 0-->
+      //Global Player Score overwritten by playRound()
       let playerScore = 0;
       let computerScore = 0;
-
-    <!--Single Round play that adds player score based on the winner-->
-      function playRound(humanChoice, computerChoice) {
-        let humanChoiceFormatted = humanChoice.slice(0, 1).toUpperCase() + humanChoice.slice(1).toLowerCase();
-        if (humanChoiceFormatted === computerChoice) {
-          console.log("It's a draw! " + humanChoiceFormatted + " against " + computerChoice);
-        } else if (humanChoiceFormatted === "Rock" && computerChoice === "Scissors" || humanChoiceFormatted === "Paper" && computerChoice === "Rock" || humanChoiceFormatted === "Scissors" && computerChoice === "Paper") {
-          console.log("You win! " + humanChoiceFormatted + " beats " + computerChoice);
-          playerScore++;
+      //Randomized Computer Choice
+      function getComputerChoice() {
+        let computerChoiceString = "";
+        let computerChoiceNum = Math.floor(Math.random() * 3);
+        if (computerChoiceNum === 0) {
+          computerChoiceString = "Rock";
+        } else if (computerChoiceNum === 1) {
+          computerChoiceString = "Paper";
         } else {
-          console.log("You loose! " + computerChoice + " beats " + humanChoiceFormatted);
-          computerScore++;
+          computerChoiceString = "Scissors"
         }
+        return computerChoiceString;
       }
+      //Human Input through Website Prompt
+      function getHumanChoice() {
+        return window.prompt("Choose: Rock, Paper, Scissors")
+      }
+     function playGame() {
+       //Function call of global functions each time playGame() -> New set of variables
+       const humanChoice = getHumanChoice();
+       const computerChoice = getComputerChoice();
+       //inner function to play the game and reformat the humanChoice
+       function playRound(humanChoice, computerChoice) {
+         let humanChoiceFormatted = humanChoice.slice(0, 1).toUpperCase() + humanChoice.slice(1).toLowerCase();
+         if (humanChoiceFormatted === computerChoice) {
+           console.log("It's a draw! " + humanChoiceFormatted + " against " + computerChoice);
+         } else if (humanChoiceFormatted === "Rock" && computerChoice === "Scissors" || humanChoiceFormatted === "Paper" && computerChoice === "Rock" || humanChoiceFormatted === "Scissors" && computerChoice === "Paper") {
+           console.log("You win! " + humanChoiceFormatted + " beats " + computerChoice);
+           playerScore++;
+         } else {
+           console.log("You loose! " + computerChoice + " beats " + humanChoiceFormatted);
+           computerScore++;
+         }
+       }
+       //calls the inner function with the defined variables (calling the global functions) and prints the current score
+       playRound(humanChoice, computerChoice)
+       console.log("The current score is: " + "Player: " + playerScore + " // Computer: " + computerScore)
+     }
 
-     <!--Constant variables to make sure that function input for playRound is based on the functions above-->
-      const humanChoice = getHumanChoice();
-      const computerChoice = getComputerChoice();
+     //calls the function for 5 rounds
+     playGame()
+     playGame()
+     playGame()
+     playGame()
+     playGame()
 
-   playRound(humanChoice, computerChoice)
     </script> 
   </body>
 </html>
