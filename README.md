@@ -8,3 +8,9 @@ TheOdinProject RockPaperScissors Project V1
 - total game is running for 5 rounds
 
 Coded without AI
+
+## v1
+- Player Choice must be added manually
+- no check for non string entries yet
+- no check for correct word
+- Spelling is corrected to uppercase first letter and lowercase for all others
